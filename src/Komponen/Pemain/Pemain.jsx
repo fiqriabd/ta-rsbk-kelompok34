@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Modal } from "antd";
 import "antd/dist/antd.css";
+import styled from 'styled-components'
+
 export default class pemain extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +13,7 @@ export default class pemain extends Component {
       nama: "",
       tim: "",
       kebangsaan: "",
-      url : "https://database-pemain-bola.herokuapp.com/"
+      url : "https://cors-anywhere.herokuapp.com/https://database-pemain-bola.herokuapp.com/"
     };
   }
  
