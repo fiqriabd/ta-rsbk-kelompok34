@@ -11,7 +11,7 @@ class child2 extends Component {
     render() {
         return (
             <div>
-                <h4>Tentang Kami</h4>
+                <h3>Kelompok 34</h3>
                 <Tentang/>
             </div>
         );
