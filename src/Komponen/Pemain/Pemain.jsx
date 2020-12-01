@@ -13,7 +13,6 @@ export default class pemain extends Component {
       nama: "",
       tim: "",
       kebangsaan: "",
-      url : "https://cors-anywhere.herokuapp.com/https://database-pemain-bola.herokuapp.com/"
     };
   }
  
@@ -51,7 +50,7 @@ export default class pemain extends Component {
     ) {
       axios({
         method: "post",
-        url:  this.state.url + "add",
+        url: "https://cors-anywhere.herokuapp.com/https://database-pemain-bola.herokuapp.com",
         headers: {
           accept: "*/*",
         },
@@ -75,11 +74,20 @@ export default class pemain extends Component {
   componentDidMount() {
     axios({
       method: "get",
-      url: this.state.url + "all",
+      url: "https://cors-anywhere.herokuapp.com/https://database-pemain-bola.herokuapp.com",
       headers: {
         accept: "*/*",
       },
     })
+      .then((data) => {
+        console.log(data.data);
+        this.setState({
+          pemain: data.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      })
   }
  
   render() {
