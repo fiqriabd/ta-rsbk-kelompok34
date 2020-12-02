@@ -51,6 +51,7 @@ function Tentang(props){
         <div>
             <Image src={props.src}/><br/>
             <a>{props.nama}</a><br/>
+            <a>{props.nim}</a>
         </div>
 
     )
@@ -64,14 +65,14 @@ export default function index() {
           <ColumnCard>
           <Container>
             <Title>
-                <Tentang nama="Fiqri Abdilah" src="https://www.linkpicture.com/q/Fiqri-abd.jpg" />
+                <Tentang nama="Fiqri Abdilah" nim="21120117130061" src="https://www.linkpicture.com/q/Fiqri-abd.jpg" />
             </Title>
             </Container>
           </ColumnCard>
           <ColumnCard>
           <Container>
             <Title>
-                <Tentang nama="Nuur Sirajuddin Faruq" src="https://www.linkpicture.com/q/FAR.jpg"/>
+                <Tentang nama="Nuur Sirajuddin Faruq" nim="21120117130071" src="https://www.linkpicture.com/q/FAR.jpg"/>
             </Title>
             </Container>
           </ColumnCard>

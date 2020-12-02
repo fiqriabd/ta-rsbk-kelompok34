@@ -3,10 +3,10 @@ import Tentang from "./Tentang/Tentang";
 
 class child2 extends Component {
     componentDidMount() {
-        alert(`Mount triggered!`)
+        alert(`Inilah Kami`)
     }
     componentWillUnmount() {
-        alert('child Kedua will be gone :(')
+        alert('Tentang Kami disembunyikan')
     }
     render() {
         return (

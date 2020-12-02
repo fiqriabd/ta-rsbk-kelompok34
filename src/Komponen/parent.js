@@ -7,9 +7,6 @@ class Parent extends Component {
         komponen1: false,
         komponen2: false
     }
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        alert(`Component Updates! State Sebelumnya child1: ${prevState.komponen1} -- State Sebelumnya Child2: ${prevState.komponen2}`)
-    }
     shouldComponentUpdate(nextProps, nextState, nextContext) {
         return window.confirm('Apakah Anda yakin?');
     }
@@ -27,10 +24,10 @@ class Parent extends Component {
         return (
             <div>
                 {this.state.komponen1 ? <Child1 /> : ''}
-                <button onClick={this.ubahkomponen1}>{this.state.komponen1 ? 'Sembunyikan' : 'Tampilkan'} Database Pemain</button>
+                <button className="button bg-danger" onClick={this.ubahkomponen1}>{this.state.komponen1 ? 'Sembunyikan' : 'Tampilkan'} Database Pemain</button>
                 <br/>
                 {this.state.komponen2 ? <Child2 /> : ''}
-                <button onClick={this.ubahkomponen2}>{this.state.komponen2 ? 'Sembunyikan' : 'Tampilkan'} Tentang Kami</button>
+                <button className="button bg-danger" onClick={this.ubahkomponen2}>{this.state.komponen2 ? 'Sembunyikan' : 'Tampilkan'} Tentang Kami</button>
             </div>
         );
     }

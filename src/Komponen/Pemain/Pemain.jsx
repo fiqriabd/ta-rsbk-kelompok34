@@ -1,8 +1,22 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Modal } from "antd";
 import "antd/dist/antd.css";
 import styled from 'styled-components'
+
+const Tombol = styled.button
+
+`
+background: #7f8c8d;
+border-radius: 7px;
+border: none;
+color: white;
+margin:15px;
+font-size:17px;
+&:hover {
+  border:solid 2px #03bfcb;
+  cursor: pointer;
+  
+}`
 
 export default class pemain extends Component {
   constructor(props) {
@@ -18,11 +32,6 @@ export default class pemain extends Component {
  
   handleButton = (nama) => {
     alert(nama);
-  };
-  handleTambahPemain = () => {
-    this.setState({
-      visible: true,
-    });
   };
   handleNama = (e) => {
     this.setState({
@@ -42,35 +51,7 @@ export default class pemain extends Component {
     });
     console.log(this.state.asal);
   };
-  handleSubmit = () => {
-    if (
-      this.state.nama !== "" &&
-      this.state.tim !== "" &&
-      !this.state.kebangsaan !== ""
-    ) {
-      axios({
-        method: "post",
-        url: "https://cors-anywhere.herokuapp.com/https://database-pemain-bola.herokuapp.com",
-        headers: {
-          accept: "*/*",
-        },
-        data: {
-          nama: this.state.nama,
-          tim: this.state.tim,
-          kebangsaan: this.state.kebangsaan,
-        },
-      })
-        .then((data) => {
-          alert("berhasil menambahkan");
-          window.location.reload();
-        })
-        .catch((error) => {
-          alert("gagal menambahkan");
-        });
-    } else {
-      alert("pastikan semua kolom terisi");
-    }
-  };
+
   componentDidMount() {
     axios({
       method: "get",
@@ -92,55 +73,19 @@ export default class pemain extends Component {
  
   render() {
     return (
-      <div>
-          <Modal
-            title="Tambah Pemain"
-            centered
-            visible={this.state.visible}
-            onOk={this.handleSubmit}
-            onCancel={() => this.setState({ visible: false })}
-            width={500}
-          >
-            <div style={{ textAlign: "center" }}>
-              <p>Nama : </p>{" "}
-              <input
- 
-                type="text"
-                placeholder="nama"
-                onChange={this.handleNama}
-              />
-              <br />
-              <p>Tim : </p>{" "}
-              <input type="text" placeholder="tim" onChange={this.handleTim} />
-              <br />
-              <p>Kebangsaan : </p>{" "}
-              <input
-                type="text"
-                placeholder="kebangsaan"
-                onChange={this.handleKebangsaan}
-              />
-              <br />
-            </div>
-          </Modal>
- 
+      <div> 
           {this.state.pemain.map((results, index) => {
             return (
               <div className="card" key={results._id}>
                 <div className="card-body">
-                  <h5 className="card-title">Nama : {results.nama}</h5>
-                  <h6 className="card-subtitle mb-2 text-muted">
-                    Tim : {results.tim}
-                  </h6>
-                  <p className="card-text">Kebangsaan : {results.kebangsaan}</p>
+                  <h5 className="card-title">
+                    Nama : {results.nama}</h5>
+                  <h5 className="card-subtitle mb-2 text-muted">
+                    Tim : {results.tim}</h5>
+                  <h5 className="card-text text-black">
+                    Kebangsaan : {results.kebangsaan}</h5>
                 </div>
-                <button
-                style={{backgroundColor:'red'}}
-                  className="button"
-                  onClick={() => this.handleButton(results.tim)}
-                >
-                  {" "}
-                  klik saya
-                </button>
+                   <Tombol onClick={() => this.handleButton(results.nama)}>KlikMe</Tombol>
               </div>
             );
           })}
@@ -148,4 +93,3 @@ export default class pemain extends Component {
     );
   }
 }
- 

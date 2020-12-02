@@ -3,10 +3,10 @@ import Pemain from './Pemain/Pemain';
 
 class child1 extends Component {
     componentDidMount() {
-        alert(`Mount triggered!`)
+        alert(`Menampilkan database Pemain`)
     }
     componentWillUnmount() {
-        alert('child Pertama will be gone :(')
+        alert('Database Pemain disembunyikan')
     }
     render() {
         return (
