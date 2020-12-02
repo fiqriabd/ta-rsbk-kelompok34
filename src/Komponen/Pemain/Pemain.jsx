@@ -6,14 +6,14 @@ import styled from 'styled-components'
 const Tombol = styled.button
 
 `
-background: #7f8c8d;
-border-radius: 7px;
+background: #e8c087;
+border-radius: 5px;
 border: none;
-color: white;
-margin:15px;
-font-size:17px;
+color: black;
+margin:16px;
+font-size:16px;
 &:hover {
-  border:solid 2px #03bfcb;
+  border:solid 2px #008b8b;
   cursor: pointer;
   
 }`
